@@ -3,7 +3,7 @@ pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
   eavsr: eavsr.html
-last_built: 2026-06-11T04:20Z
+last_built: 2026-06-11T15:11Z
 urls:
   reference: https://cwimpy.github.io/eavsr/reference
   article: https://cwimpy.github.io/eavsr/articles
