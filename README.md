@@ -1,4 +1,4 @@
-# eavsr
+# eavsr <a href="https://cwimpy.github.io/eavsr/"><img src="man/figures/logo.png" align="right" height="139" alt="eavsr website" /></a>
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/cwimpy/eavsr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/cwimpy/eavsr/actions/workflows/R-CMD-check.yaml)

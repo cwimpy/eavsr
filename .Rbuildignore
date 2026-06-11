@@ -12,3 +12,4 @@
 ^\.vscode$
 ^\.claude$
 ^\.DS_Store$
+^TESTING\.md$
