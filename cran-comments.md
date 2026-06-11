@@ -4,29 +4,25 @@
 
 * This is a new submission.
 
-The note ("New submission") is expected for a first release.
-
-The same note also flags the package URLs as possibly invalid (HTTP 404).
-These are correct and resolve once the public repository and pkgdown site
-are live at submission time:
-
-* https://github.com/cwimpy/eavsr
-* https://cwimpy.github.io/eavsr/
+The note ("New submission") is expected for a first release. The package
+URLs (https://github.com/cwimpy/eavsr, https://cwimpy.github.io/eavsr/)
+are live and verified with `urlchecker::url_check()`.
 
 ## Test environments
 
 * local: macOS (aarch64), R 4.6.0
-* <TODO: add before submitting, e.g.>
-  * win-builder (devel and release)
-  * R-hub: Windows, macOS, Ubuntu
-  * GitHub Actions R-CMD-check (release, devel, oldrel)
+* GitHub Actions: ubuntu-latest (R release, devel, oldrel-1),
+  windows-latest (R release), macos-latest (R release)
+* win-builder: devel and release
 
 ## Notes for CRAN
 
 * Functions that download EAVS files from the U.S. Election Assistance
   Commission perform network access. All such examples are wrapped in
-  `\dontrun{}`. The test suite uses only small synthetic in-memory data
-  frames and does not access the network.
+  `\dontrun{}`. Downloads fail gracefully with an informative message if
+  the remote resource is unavailable, and are cached under
+  `tools::R_user_dir("eavsr", "cache")`. The test suite uses only small
+  synthetic in-memory data frames and does not access the network.
 * The package is not affiliated with or endorsed by the U.S. Election
   Assistance Commission; this is stated in the DESCRIPTION and
   documentation.

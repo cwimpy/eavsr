@@ -53,17 +53,34 @@ download_eavs <- function(cycle,
   invisible(out)
 }
 
-# Single-file HTTP fetch with httr2 + progress.
+# Single-file HTTP fetch with httr2 + progress. Downloads to a tempfile and
+# copies into the cache only on success, so a failed or partial download can
+# never be mistaken for a cached file.
 .fetch <- function(url, dest, label, quiet = FALSE) {
   if (!quiet) {
     cli::cli_alert_info("Downloading {label} ...")
   }
+  tmp <- tempfile(fileext = paste0(".", tools::file_ext(dest)))
+  on.exit(unlink(tmp), add = TRUE)
   req <- httr2::request(url) |>
     httr2::req_user_agent("eavsr (https://github.com/cwimpy/eavsr)") |>
     httr2::req_retry(max_tries = 3)
-  resp <- httr2::req_perform(req, path = dest)
-  if (httr2::resp_status(resp) >= 400L) {
-    cli::cli_abort("Download failed ({httr2::resp_status(resp)}): {.url {url}}")
+  tryCatch(
+    httr2::req_perform(req, path = tmp),
+    error = function(e) {
+      cli::cli_abort(
+        c(
+          "Download failed for {label}.",
+          "i" = "URL: {.url {url}}",
+          "i" = "The EAC server may be unavailable; please try again later.",
+          "x" = conditionMessage(e)
+        ),
+        call = NULL
+      )
+    }
+  )
+  if (!file.copy(tmp, dest, overwrite = TRUE)) {
+    cli::cli_abort("Could not write to cache: {.path {dest}}")
   }
   if (!quiet) {
     cli::cli_alert_success("Saved {.path {dest}}")
