@@ -1,0 +1,18 @@
+cycle,variable,harmonized,section,description
+2024,A1a,registered_voters_total,registration,Total registered voters
+2024,A1b,registered_voters_active,registration,Active registered voters
+2024,A1c,registered_voters_inactive,registration,Inactive registered voters
+2024,B1a,voting_systems_count,technology,Number of voting systems in use
+2024,C1a,absentee_ballots_transmitted,mail_voting,Absentee/mail ballots transmitted to voters
+2024,C1b,absentee_ballots_returned,mail_voting,Absentee/mail ballots returned by voters
+2024,C1c,absentee_ballots_counted,mail_voting,Absentee/mail ballots counted
+2024,D1a,polling_places_election_day,polling_places,Number of physical polling places on Election Day
+2024,D2a,polling_places_total,polling_places,Total polling places (Election Day + early)
+2024,D7a,poll_workers_total,staffing,Total number of poll workers
+2024,D8,poll_worker_difficulty,staffing,Difficulty obtaining sufficient poll workers (scale)
+2024,E1a,ballots_rejected_provisional,rejections,Provisional ballots rejected
+2024,F1a,turnout_total_ballots_counted,participation,Total ballots counted
+2024,F1b,turnout_in_person_election_day,participation,Ballots cast in person on Election Day
+2024,F1c,turnout_in_person_early,participation,Ballots cast in person during early voting
+2024,F1d,turnout_by_mail,participation,Ballots cast by mail/absentee
+2024,F1e,turnout_provisional,participation,Provisional ballots cast

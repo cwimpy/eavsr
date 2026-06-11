@@ -1,0 +1,42 @@
+Package: eavsr
+Title: Tidy Access to the Election Administration and Voting Survey
+Version: 0.1.0
+Authors@R:
+    person("Cameron", "Wimpy", , "cwimpy@astate.edu", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-2049-5229"))
+Description: A tidy interface to the U.S. Election Assistance Commission's
+    Election Administration and Voting Survey (EAVS). Downloads and caches
+    public-release files, harmonizes variable names across survey cycles,
+    exposes the codebook as a tibble, and provides helpers for joining EAVS
+    data to county-level rurality classifications. Not affiliated with or
+    endorsed by the U.S. Election Assistance Commission.
+License: MIT + file LICENSE
+URL: https://github.com/cwimpy/eavsr, https://cwimpy.github.io/eavsr/
+BugReports: https://github.com/cwimpy/eavsr/issues
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Depends:
+    R (>= 4.1.0)
+Imports:
+    cli,
+    httr2,
+    readr,
+    tibble,
+    tools,
+    utils
+Suggests:
+    arrow,
+    dplyr,
+    httptest2,
+    janitor,
+    knitr,
+    piggyback,
+    readxl,
+    rmarkdown,
+    rurality,
+    testthat (>= 3.0.0),
+    withr
+Config/testthat/edition: 3
+VignetteBuilder: knitr
+LazyData: true
+Config/roxygen2/version: 8.0.0

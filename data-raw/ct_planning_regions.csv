@@ -1,0 +1,170 @@
+town_name,planning_region_code,planning_region_name
+ANDOVER,09110,Capitol
+AVON,09110,Capitol
+BERLIN,09110,Capitol
+BLOOMFIELD,09110,Capitol
+BOLTON,09110,Capitol
+CANTON,09110,Capitol
+COLUMBIA,09110,Capitol
+COVENTRY,09110,Capitol
+EAST GRANBY,09110,Capitol
+EAST HARTFORD,09110,Capitol
+EAST WINDSOR,09110,Capitol
+ELLINGTON,09110,Capitol
+ENFIELD,09110,Capitol
+FARMINGTON,09110,Capitol
+GLASTONBURY,09110,Capitol
+GRANBY,09110,Capitol
+HARTFORD,09110,Capitol
+HEBRON,09110,Capitol
+MANCHESTER,09110,Capitol
+MANSFIELD,09110,Capitol
+MARLBOROUGH,09110,Capitol
+NEW BRITAIN,09110,Capitol
+NEWINGTON,09110,Capitol
+PLAINVILLE,09110,Capitol
+ROCKY HILL,09110,Capitol
+SIMSBURY,09110,Capitol
+SOMERS,09110,Capitol
+SOUTH WINDSOR,09110,Capitol
+SOUTHINGTON,09110,Capitol
+STAFFORD,09110,Capitol
+SUFFIELD,09110,Capitol
+TOLLAND,09110,Capitol
+VERNON,09110,Capitol
+WEST HARTFORD,09110,Capitol
+WETHERSFIELD,09110,Capitol
+WILLINGTON,09110,Capitol
+WINDSOR,09110,Capitol
+WINDSOR LOCKS,09110,Capitol
+BRIDGEPORT,09120,Greater Bridgeport
+EASTON,09120,Greater Bridgeport
+FAIRFIELD,09120,Greater Bridgeport
+MONROE,09120,Greater Bridgeport
+STRATFORD,09120,Greater Bridgeport
+TRUMBULL,09120,Greater Bridgeport
+CHESTER,09130,Lower Connecticut River Valley
+CLINTON,09130,Lower Connecticut River Valley
+CROMWELL,09130,Lower Connecticut River Valley
+DEEP RIVER,09130,Lower Connecticut River Valley
+DURHAM,09130,Lower Connecticut River Valley
+EAST HADDAM,09130,Lower Connecticut River Valley
+EAST HAMPTON,09130,Lower Connecticut River Valley
+ESSEX,09130,Lower Connecticut River Valley
+HADDAM,09130,Lower Connecticut River Valley
+KILLINGWORTH,09130,Lower Connecticut River Valley
+LYME,09130,Lower Connecticut River Valley
+MIDDLEFIELD,09130,Lower Connecticut River Valley
+MIDDLETOWN,09130,Lower Connecticut River Valley
+OLD LYME,09130,Lower Connecticut River Valley
+OLD SAYBROOK,09130,Lower Connecticut River Valley
+PORTLAND,09130,Lower Connecticut River Valley
+WESTBROOK,09130,Lower Connecticut River Valley
+ANSONIA,09140,Naugatuck Valley
+BEACON FALLS,09140,Naugatuck Valley
+BETHLEHEM,09140,Naugatuck Valley
+BRISTOL,09140,Naugatuck Valley
+CHESHIRE,09140,Naugatuck Valley
+DERBY,09140,Naugatuck Valley
+MIDDLEBURY,09140,Naugatuck Valley
+NAUGATUCK,09140,Naugatuck Valley
+OXFORD,09140,Naugatuck Valley
+PLYMOUTH,09140,Naugatuck Valley
+PROSPECT,09140,Naugatuck Valley
+SEYMOUR,09140,Naugatuck Valley
+SHELTON,09140,Naugatuck Valley
+SOUTHBURY,09140,Naugatuck Valley
+THOMASTON,09140,Naugatuck Valley
+WATERBURY,09140,Naugatuck Valley
+WATERTOWN,09140,Naugatuck Valley
+WOLCOTT,09140,Naugatuck Valley
+WOODBURY,09140,Naugatuck Valley
+ASHFORD,09150,Northeastern Connecticut
+BROOKLYN,09150,Northeastern Connecticut
+CANTERBURY,09150,Northeastern Connecticut
+CHAPLIN,09150,Northeastern Connecticut
+EASTFORD,09150,Northeastern Connecticut
+HAMPTON,09150,Northeastern Connecticut
+KILLINGLY,09150,Northeastern Connecticut
+PLAINFIELD,09150,Northeastern Connecticut
+POMFRET,09150,Northeastern Connecticut
+PUTNAM,09150,Northeastern Connecticut
+SCOTLAND,09150,Northeastern Connecticut
+STERLING,09150,Northeastern Connecticut
+THOMPSON,09150,Northeastern Connecticut
+UNION,09150,Northeastern Connecticut
+VOLUNTOWN,09150,Northeastern Connecticut
+WOODSTOCK,09150,Northeastern Connecticut
+BARKHAMSTED,09160,Northwest Hills
+BURLINGTON,09160,Northwest Hills
+CANAAN,09160,Northwest Hills
+COLEBROOK,09160,Northwest Hills
+CORNWALL,09160,Northwest Hills
+GOSHEN,09160,Northwest Hills
+HARTLAND,09160,Northwest Hills
+HARWINTON,09160,Northwest Hills
+KENT,09160,Northwest Hills
+LITCHFIELD,09160,Northwest Hills
+MORRIS,09160,Northwest Hills
+NEW HARTFORD,09160,Northwest Hills
+NORFOLK,09160,Northwest Hills
+NORTH CANAAN,09160,Northwest Hills
+ROXBURY,09160,Northwest Hills
+SALISBURY,09160,Northwest Hills
+SHARON,09160,Northwest Hills
+TORRINGTON,09160,Northwest Hills
+WARREN,09160,Northwest Hills
+WASHINGTON,09160,Northwest Hills
+WINCHESTER,09160,Northwest Hills
+BETHANY,09170,South Central Connecticut
+BRANFORD,09170,South Central Connecticut
+EAST HAVEN,09170,South Central Connecticut
+GUILFORD,09170,South Central Connecticut
+HAMDEN,09170,South Central Connecticut
+MADISON,09170,South Central Connecticut
+MERIDEN,09170,South Central Connecticut
+MILFORD,09170,South Central Connecticut
+NEW HAVEN,09170,South Central Connecticut
+NORTH BRANFORD,09170,South Central Connecticut
+NORTH HAVEN,09170,South Central Connecticut
+ORANGE,09170,South Central Connecticut
+WALLINGFORD,09170,South Central Connecticut
+WEST HAVEN,09170,South Central Connecticut
+WOODBRIDGE,09170,South Central Connecticut
+BOZRAH,09180,Southeastern Connecticut
+COLCHESTER,09180,Southeastern Connecticut
+EAST LYME,09180,Southeastern Connecticut
+FRANKLIN,09180,Southeastern Connecticut
+GRISWOLD,09180,Southeastern Connecticut
+GROTON,09180,Southeastern Connecticut
+LEBANON,09180,Southeastern Connecticut
+LEDYARD,09180,Southeastern Connecticut
+LISBON,09180,Southeastern Connecticut
+MONTVILLE,09180,Southeastern Connecticut
+NEW LONDON,09180,Southeastern Connecticut
+NORTH STONINGTON,09180,Southeastern Connecticut
+NORWICH,09180,Southeastern Connecticut
+PRESTON,09180,Southeastern Connecticut
+SALEM,09180,Southeastern Connecticut
+SPRAGUE,09180,Southeastern Connecticut
+STONINGTON,09180,Southeastern Connecticut
+WATERFORD,09180,Southeastern Connecticut
+WINDHAM,09180,Southeastern Connecticut
+BETHEL,09190,Western Connecticut
+BRIDGEWATER,09190,Western Connecticut
+BROOKFIELD,09190,Western Connecticut
+DANBURY,09190,Western Connecticut
+DARIEN,09190,Western Connecticut
+GREENWICH,09190,Western Connecticut
+NEW CANAAN,09190,Western Connecticut
+NEW FAIRFIELD,09190,Western Connecticut
+NEW MILFORD,09190,Western Connecticut
+NEWTOWN,09190,Western Connecticut
+NORWALK,09190,Western Connecticut
+REDDING,09190,Western Connecticut
+RIDGEFIELD,09190,Western Connecticut
+SHERMAN,09190,Western Connecticut
+STAMFORD,09190,Western Connecticut
+WESTON,09190,Western Connecticut
+WESTPORT,09190,Western Connecticut
+WILTON,09190,Western Connecticut

@@ -1,0 +1,168 @@
+---
+title: "Getting started with eavsr"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting started with eavsr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+`eavsr` provides a tidy interface to the U.S. Election Assistance Commission's
+**Election Administration and Voting Survey (EAVS)** — the largest public
+dataset on local election administration in the United States. This vignette
+walks through the main workflow: discovering cycles, downloading and reading
+data, harmonizing variables, classifying jurisdictions, and rolling everything
+up to county-equivalent geography.
+
+> Not affiliated with or endorsed by the U.S. Election Assistance Commission.
+
+```{r setup}
+library(eavsr)
+```
+
+## Which cycles are available?
+
+`eavs_cycles()` returns the cycles the package knows about, the source URLs,
+and whether each is ready to download (`supported`) or still being verified
+(`planned`).
+
+```{r}
+eavs_cycles()
+```
+
+## Downloading and reading data
+
+`read_eavs()` downloads a cycle (if it is not already cached), reads it into a
+tibble, and recodes EAVS missing-value codes (negative integers such as `-99`)
+to `NA`. The download happens once and is cached locally, so later calls are
+fast.
+
+```{r, eval = FALSE}
+# One call: download (first time only), unzip, read, and clean.
+eavs <- read_eavs(2024)
+
+# The file exactly as released, with no recoding or name cleaning:
+raw <- read_eavs(2024, level = "raw")
+```
+
+`read_eavs(level = "jurisdiction")` (the default) lower-cases column names with
+`janitor::clean_names()` and recodes missing values; `level = "raw"` returns the
+file untouched. You can also call `download_eavs()` directly if you only want the
+file path.
+
+### The codebook
+
+EAVS ships a codebook describing all ~500 variables. For cycles whose codebook
+is released as a spreadsheet, `eavs_codebook()` returns it as a tibble (this
+requires the `readxl` package):
+
+```{r, eval = FALSE}
+cb <- eavs_codebook(2024)
+```
+
+## Harmonizing variables across cycles
+
+EAVS variable codes drift across survey cycles, which makes multi-cycle work
+painful. `eavs_crosswalk()` returns a hand-curated map from raw EAVS codes to a
+stable harmonized name and topical section:
+
+```{r}
+eavs_crosswalk()
+```
+
+## Understanding EAVS geography
+
+EAVS reporting units vary by state, and — importantly — so does the `FIPSCode`
+field. There are three patterns to know about:
+
+- **Most states** use a 10-digit code. A trailing `00000` marks a
+  **county-level** row (county-reporting states); any other ending marks a
+  **sub-county** row (the New England township states: ME, MA, NH, VT, CT, RI).
+- **Wisconsin** uses a 5-digit internal code that is *not* a Census FIPS code;
+  its ~1,850 municipalities carry the county only in the jurisdiction *name*
+  (e.g. `TOWN OF ABRAMS - OCONTO COUNTY`).
+- **Connecticut** reports by town and is mapped to its nine planning regions.
+
+`classify_jurisdiction()` reads these patterns and adds `jurisdiction_type`,
+`state_fips`, `county_fips`, and `is_multi_county`. It keys off the
+`state_abbr` column (not the raw FIPS prefix), and applies Connecticut and
+Wisconsin name lookups where needed.
+
+```{r}
+jur <- tibble::tibble(
+  fips_code         = c("0100100000",     "2500112345",   "0900112345"),
+  jurisdiction_name = c("AUTAUGA COUNTY", "EXAMPLE TOWN",  "ANDOVER TOWN"),
+  state_abbr        = c("AL",             "MA",            "CT")
+)
+
+classify_jurisdiction(jur)
+```
+
+Here Autauga County (Alabama) is a county row; the Massachusetts town is a
+sub-county row whose `county_fips` is derived from its code; and the Connecticut
+town is mapped to its planning region (`09110`). The Connecticut and Wisconsin
+lookup tables are extensible — pass your own via the `ct_lookup` and `wi_lookup`
+arguments, or see `?ct_planning_regions` and `?wi_subcounty_fips`.
+
+## Rolling up to county level
+
+`aggregate_to_county()` produces one row per county-equivalent FIPS code. For
+each county it prefers a directly reported county row; where only sub-county
+rows exist, it sums their numeric columns up to the county. Ordinal questions
+(like EAVS `d8`) can be summarized by their modal value instead of summed. It
+calls `classify_jurisdiction()` for you if the data has not been classified.
+
+```{r}
+example <- tibble::tibble(
+  fips_code         = c("0100100000",     "2500112345", "2500167890"),
+  jurisdiction_name = c("AUTAUGA COUNTY", "TOWN A",      "TOWN B"),
+  state_abbr        = c("AL",             "MA",          "MA"),
+  total_voters      = c(40000,            12000,         8000)
+)
+
+aggregate_to_county(example)
+```
+
+The Alabama county is carried through directly (`data_source = "direct_county"`),
+while the two Massachusetts towns are summed into their shared county
+(`data_source = "aggregated_subcounty"`). By default U.S. territories and Alaska
+are dropped, since they do not roll up cleanly to county FIPS; see
+`?aggregate_to_county` to change that.
+
+## Citing EAVS
+
+The EAC asks researchers to cite the EAVS release. `cite_eavs()` builds the
+recommended citation as text, BibTeX, or a structured list:
+
+```{r}
+cite_eavs(2024)
+```
+
+```{r}
+cat(cite_eavs(2024, style = "bibtex"))
+```
+
+## Managing the cache
+
+Downloaded files live under `tools::R_user_dir("eavsr", "cache")`. Override the
+location with the `EAVSR_CACHE_DIR` environment variable.
+
+```{r, eval = FALSE}
+eavs_cache_dir()    # where files are stored
+eavs_cache_info()   # what is currently cached
+eavs_clear_cache()  # remove cached files
+```
+
+## Pairing with rurality data
+
+EAVS county-level output pairs naturally with the
+[`rurality`](https://github.com/cwimpy/rurality) package, which provides
+county-level rurality classifications (RUCC, RUCA, IRR, OMB) for rural–urban
+analyses of election administration.

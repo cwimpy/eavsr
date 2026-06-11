@@ -1,0 +1,30 @@
+url: https://cwimpy.github.io/eavsr/
+
+template:
+  bootstrap: 5
+
+reference:
+  - title: "Download and read EAVS data"
+    contents:
+      - download_eavs
+      - read_eavs
+      - eavs_codebook
+  - title: "Classify and aggregate"
+    contents:
+      - classify_jurisdiction
+      - aggregate_to_county
+  - title: "Metadata and citations"
+    contents:
+      - eavs_cycles
+      - eavs_crosswalk
+      - cite_eavs
+  - title: "Cache management"
+    contents:
+      - eavs_cache_dir
+      - eavs_cache_info
+      - eavs_clear_cache
+  - title: "Data"
+    contents:
+      - crosswalk
+      - ct_planning_regions
+      - wi_subcounty_fips
